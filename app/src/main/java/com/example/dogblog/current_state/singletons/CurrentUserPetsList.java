@@ -4,8 +4,8 @@ import androidx.annotation.NonNull;
 
 import com.example.dogblog.current_state.observers.UserPetsListObserver;
 import com.example.dogblog.current_state.observers.UserProfileObserver;
-import com.example.pawsome.dal.DataCrud;
-import com.example.pawsome.model.PetProfile;
+import com.example.dogblog.dal.DataCrud;
+import com.example.dogblog.model.PetProfile;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;

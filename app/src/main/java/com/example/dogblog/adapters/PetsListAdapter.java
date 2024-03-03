@@ -11,10 +11,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.pawsome.R;
-import com.example.pawsome.callbacks.PetListCallback;
-import com.example.pawsome.model.PetProfile;
-import com.example.pawsome.utils.DateTimeConverter;
+import com.example.dogblog.R;
+import com.example.dogblog.callbacks.PetListCallback;
+import com.example.dogblog.model.PetProfile;
+import com.example.dogblog.utils.DateTimeConverter;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textview.MaterialTextView;

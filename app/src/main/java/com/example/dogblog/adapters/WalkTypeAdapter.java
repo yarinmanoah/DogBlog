@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.pawsome.R;
-import com.example.pawsome.callbacks.WalkTypeCallback;
-import com.example.pawsome.model.WalkType;
+import com.example.dogblog.R;
+import com.example.dogblog.callbacks.WalkTypeCallback;
+import com.example.dogblog.model.WalkType;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
 
