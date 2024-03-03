@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pawsome</string>
+    <string name="app_name">DogBlog</string>
 
     <string name="title_user_profile">User Profile</string>
     <string name="title_pet_profile">Pet Profile</string>

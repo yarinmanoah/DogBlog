@@ -1,6 +1,6 @@
 plugins {
-    id("com.android.application")
-    id ("com.google.gms.google-services")
+    id  ("com.android.application")
+    id  ("com.google.gms.google-services")
 
 }
 
@@ -48,7 +48,7 @@ dependencies {
 
 // Firebase
         implementation ("com.google.firebase:firebase-bom:32.7.3")  // Firebase BoM for managing dependencies
-        implementation ("com.google.firebase:firebase-analytics")  // Firebase Analytics library
+        implementation ("com.google.firebase:firebase-analytics-ktx:21.5.1")  // Firebase Analytics library
         implementation ("com.google.firebase:firebase-database")  // Firebase Realtime Database library
         implementation ("com.google.firebase:firebase-core:21.1.1")  // Firebase Core library
         implementation ("com.google.firebase:firebase-auth")  // Firebase Authentication library
