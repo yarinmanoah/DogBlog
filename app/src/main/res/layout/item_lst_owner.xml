@@ -23,7 +23,7 @@
         android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_weight="10"
-        android:text="Shachar Felman"
+        android:text="@string/Yarin"
         android:textColor="@color/colorRecycleItemPrimaryText"
         android:textSize="14sp" />
 

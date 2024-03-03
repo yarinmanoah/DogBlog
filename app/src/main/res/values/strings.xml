@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">DogBlog</string>
+    <string name="Yarin">Yarin Manaoh</string>
+    <string name="Toy">Toy</string>
+
+
 
     <string name="title_user_profile">User Profile</string>
     <string name="title_pet_profile">Pet Profile</string>

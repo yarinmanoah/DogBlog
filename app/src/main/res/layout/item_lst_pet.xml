@@ -44,7 +44,7 @@
                     android:id="@+id/pet_item_TV_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Baylis"
+                    android:text="@string/Toy"
                     android:textColor="@color/colorRecycleItemPrimaryText"
                     android:textSize="24sp" />
 
@@ -69,7 +69,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
-                        android:text="9 years old"
+                        android:text="2 years old"
                         android:textColor="@color/colorRecycleItemSecondaryText"
                         android:textSize="16sp" />
 
