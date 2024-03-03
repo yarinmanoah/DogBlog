@@ -1,3 +1,70 @@
 <resources>
-    <string name="app_name">DogBlog</string>
+    <string name="app_name">Pawsome</string>
+
+    <string name="title_user_profile">User Profile</string>
+    <string name="title_pet_profile">Pet Profile</string>
+    <string name="title_meals_log">Meals Log</string>
+    <string name="title_user_greeting_prefix">Hello</string>
+    <string name="title_add_meal_type">Add Meal Type</string>
+    <string name="title_add_meal">Add Meal</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_add_note">Add Note</string>
+
+    <string name="button_upload">Upload Image</string>
+    <string name="button_save">Save</string>
+    <string name="button_add_pet">Add New Pet</string>
+    <string name="button_home">Go to HomePage</string>
+    <string name="button_owners_list">Owners List</string>
+    <string name="button_add_owner">Add Owner</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_meals_log">Meals Log</string>
+    <string name="menu_add">Add</string>
+    <string name="menu_walks_log">Walks Log</string>
+    <string name="menu_settings">Settings</string>
+
+    <string name="hint_pet_name">Name</string>
+    <string name="hint_user_name">Name</string>
+    <string name="hint_gender">Gender</string>
+    <string name="hint_date_of_birth">Date of Birth</string>
+    <string name="hint_food_type">Food Type</string>
+    <string name="hint_amount">Amount</string>
+    <string name="hint_units">Units</string>
+    <string name="hint_phone_number">Phone</string>
+    <string name="hint_meal_name">Meal name</string>
+    <string name="hint_time">Meal Time</string>
+    <string name="hint_date">Date</string>
+    <string name="hint_owner_email">Owner\'s email</string>
+    <string name="hint_note">Write your note here</string>
+
+    <string name="text_regular_meals">Regular Meals</string>
+    <string name="text_as_icon_plus">+</string>
+    <string name="text_regular_walks">Regular Walks</string>
+
+    <string name="prompt_exists_pet_note">If your pet already has a profile in the app, please ask the owner to add it to your account. You can always add a new pet later.</string>
+    <string name="prompt_empty_meals_list">No meals to show</string>
+
+    <string name="img_desc_meal_icon">Meal icon</string>
+    <string name="img_desc_pet_icon">Pet icon</string>
+    <string name="img_desc_walk_icon" >Walk icon</string>
+    <string name="title_add_walk_type">Add Walk Type</string>
+    <string name="hint_walk_name">Walk Name</string>
+    <string name="hint_walk_time">Walk Time</string>
+    <string name="hint_walk_duration">Duration</string>
+    <string name="hint_poop">Poop</string>
+    <string name="hint_pee">Pee</string>
+    <string name="hint_play">Play</string>
+    <string name="title_add_walk">Add Walk</string>
+    <string name="hint_walk_rate">Rate the walk</string>
+    <string name="prompt_empty_walks_list">No Walks To Show</string>
+    <string name="title_last_walk">Last Walk</string>
+    <string name="title_last_meal">Last Meal</string>
+    <string name="prompt_no_pets">You have no pets :)</string>
+
+    <string-array name="Gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Undefined</item>
+    </string-array>
+
 </resources>

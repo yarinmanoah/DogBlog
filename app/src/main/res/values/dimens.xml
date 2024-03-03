@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="large_image_size">90dp</dimen>
+    <dimen name="normal_image_size">75dp</dimen>
+
+</resources>

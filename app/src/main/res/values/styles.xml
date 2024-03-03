@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ShapeAppearanceOverlay.App.CornerSize10Percent" parent="">
+        <item name="cornerSize">10%</item>
+    </style>
+
+    <style name="DialogTheme" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimaryLight</item>
+    </style>
+
+    <style name="LoginTheme" parent="FirebaseUI">
+        <item name="colorPrimary">@color/colorPrimary</item> <!-- Main color for your UI, affects parts of the UI like the action bar. -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item> <!-- Darker variant of your primary color. -->
+        <item name="colorAccent">@color/colorPrimary</item> <!-- Color for controls like checkboxes and text selection, also used for button color. -->
+        <item name="android:textColorPrimary">@color/black</item> <!-- Main text color -->
+        <item name="android:textColorSecondary">@color/grey</item> <!-- Secondary text color -->
+        <item name="android:windowBackground">#F1F4F5</item> <!-- Window background color or drawable -->
+    </style>
+
+
+</resources>
