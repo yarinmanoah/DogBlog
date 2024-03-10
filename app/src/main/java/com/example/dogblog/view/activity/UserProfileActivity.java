@@ -28,9 +28,7 @@ import com.example.dogblog.utils.Constants;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class UserProfileActivity extends AppCompatActivity {
-
     private ActivityUserProfileBinding binding;
-
     private static final int IMAGE_UPLOAD_REQUEST_CODE = 1;
     private Uri imageUri;
     private String imageUrl;

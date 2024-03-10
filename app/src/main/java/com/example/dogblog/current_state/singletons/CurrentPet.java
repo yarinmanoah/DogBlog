@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CurrentPet {
-
     private static CurrentPet currentPet = null;
     private PetProfile petProfile = null;
     private final List<PetMealsObserver> mealsObservers = new ArrayList<>();

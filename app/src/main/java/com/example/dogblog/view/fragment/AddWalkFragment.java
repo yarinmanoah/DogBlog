@@ -42,7 +42,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class AddWalkFragment extends Fragment {
-
     private FragmentAddWalkBinding binding;
     private List<String> walkTypes;
     private WalkType selectedWalkType;

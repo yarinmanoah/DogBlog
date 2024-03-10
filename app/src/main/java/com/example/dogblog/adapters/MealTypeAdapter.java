@@ -17,7 +17,6 @@ import com.google.android.material.textview.MaterialTextView;
 import java.util.List;
 
 public class MealTypeAdapter extends RecyclerView.Adapter<MealTypeAdapter.MealTypeViewHolder> {
-
     private List<MealType> mealTypes;
     private MealTypeCallback mealTypeCallback;
     private Context context;

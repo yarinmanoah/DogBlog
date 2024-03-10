@@ -1,13 +1,11 @@
 package com.example.dogblog.model;
 
 import com.example.dogblog.utils.Constants;
-
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class MealType {
-
     private long time;
     private int amount;
     private String unit;

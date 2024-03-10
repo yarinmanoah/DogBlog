@@ -7,9 +7,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class FirebaseDB {
-
     private static FirebaseDB instance;
-
     private final FirebaseStorage storageDB;
     private final FirebaseDatabase realtimeDB;
 

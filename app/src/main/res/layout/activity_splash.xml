@@ -36,7 +36,7 @@
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Pet's Routine, Simplified"
+        android:text="Hello World"
         android:textSize="30sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"

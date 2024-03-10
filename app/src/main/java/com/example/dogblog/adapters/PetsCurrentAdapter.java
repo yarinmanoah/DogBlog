@@ -1,7 +1,6 @@
 package com.example.dogblog.adapters;
 
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,6 @@ import com.google.android.material.textview.MaterialTextView;
 import java.util.List;
 
 public class PetsCurrentAdapter extends RecyclerView.Adapter<PetsCurrentAdapter.PetViewHolder> {
-
     private final Fragment fragment;
     private List<PetProfile> petsList;
     private PetCurrentCallback petCurrentCallback;

@@ -1,7 +1,6 @@
 package com.example.dogblog.utils;
 
 public class Constants {
-
     public final static String DB_USERS = "UserInfo";
     public final static String DB_PETS = "PetInfo";
     public final static String DB_USERS_PROFILE_IMAGES = "UserProfileImages";

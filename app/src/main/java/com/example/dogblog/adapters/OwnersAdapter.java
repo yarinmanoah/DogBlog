@@ -23,10 +23,8 @@ import java.time.Period;
 import java.util.List;
 
 public class OwnersAdapter extends RecyclerView.Adapter<OwnersAdapter.OwnerViewHolder> {
-
     private final AppCompatActivity activity;
     private List<UserProfile> owners;
-
     private OwnerCallback ownerCallback;
 
 

@@ -27,7 +27,6 @@ import java.util.List;
 
 
 public class SettingsFragment extends Fragment implements UserPetsListObserver {
-
     private FragmentSettingsBinding binding;
     private PetsListAdapter petsListAdapter;
     private List<PetProfile> pets = new ArrayList<>();

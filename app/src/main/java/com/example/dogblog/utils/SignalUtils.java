@@ -8,7 +8,6 @@ import android.widget.Toast;
 
 public class SignalUtils {
     private static SignalUtils signalUtilsGenerator = null;
-
     private final Context context;
     private static Vibrator v;
 
@@ -35,12 +34,6 @@ public class SignalUtils {
     }
 
     public void vibrate(long milliseconds){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            v.vibrate(VibrationEffect.createOneShot(milliseconds, VibrationEffect.DEFAULT_AMPLITUDE));
-        }
-        else {
-            //deprecated in API 26
-            v.vibrate(milliseconds);
-        }
+        v.vibrate(VibrationEffect.createOneShot(milliseconds, VibrationEffect.DEFAULT_AMPLITUDE));
     }
 }

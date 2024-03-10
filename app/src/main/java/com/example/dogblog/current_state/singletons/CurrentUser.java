@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CurrentUser {
-
     private static CurrentUser currentUser = null;
     private UserProfile userProfile = null;
     private final FirebaseUser user;
@@ -84,7 +83,6 @@ public class CurrentUser {
     public String getUid() {
         if(getUserProfile() != null)
             return getUserProfile().getUid();
-
         return null;
     }
 

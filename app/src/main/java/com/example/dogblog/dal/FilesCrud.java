@@ -4,7 +4,6 @@ import com.example.dogblog.utils.Constants;
 import com.google.firebase.storage.StorageReference;
 
 public class FilesCrud {
-
     private static FilesCrud instance;
     private final StorageReference usersImagesStorageReference;
     private final StorageReference petsImagesStorageReference;
@@ -32,6 +31,5 @@ public class FilesCrud {
     public void deletePetImageFromDB(String petId) {
         getPetFileReference(petId).delete();
     }
-
 
 }

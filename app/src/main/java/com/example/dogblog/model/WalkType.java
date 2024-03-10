@@ -8,7 +8,6 @@ import java.util.Locale;
 import java.util.Objects;
 
 public class WalkType {
-
     private long time;
     private int durationInMinutes;
     private boolean poop;

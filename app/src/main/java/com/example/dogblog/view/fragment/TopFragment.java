@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TopFragment extends Fragment /* implements UserPetsListObserver */ {
-
     private FragmentTopBinding binding;
     private PetsCurrentAdapter petsCurrentAdapter;
     private List<PetProfile> pets = new ArrayList<>();

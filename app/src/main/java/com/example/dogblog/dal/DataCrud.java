@@ -8,7 +8,6 @@ import com.example.dogblog.utils.Constants;
 import com.google.firebase.database.DatabaseReference;
 
 public class DataCrud {
-
     private static DataCrud instance;
     private final DatabaseReference usersDatabaseReference;
     private final DatabaseReference petsDatabaseReference;
@@ -57,13 +56,10 @@ public class DataCrud {
                 }
             }
         });
-
     }
 
     private void _deletePetFromUser(String petId, UserProfile user) {
         user.removePet(petId);
         DataCrud.getInstance().setUserInDB(user);
     }
-
-
 }

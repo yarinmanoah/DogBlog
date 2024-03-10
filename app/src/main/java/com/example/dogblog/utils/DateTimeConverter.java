@@ -10,7 +10,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class DateTimeConverter {
-
     public static LocalDate longToLocalDate(long date) {
         return Instant.ofEpochMilli(date)
                 .atZone(ZoneId.systemDefault())
@@ -70,7 +69,4 @@ public class DateTimeConverter {
         int minutes = durationInMinutes % 60;
         return String.format(Locale.getDefault(), "%02d:%02d", hours, minutes);
     }
-
-
-
 }

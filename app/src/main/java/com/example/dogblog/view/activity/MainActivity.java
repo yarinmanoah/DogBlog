@@ -27,7 +27,6 @@ import androidx.fragment.app.Fragment;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements UserPetsListObserver {
-
     private static final int mainFragmentLocation = R.id.main_FRAME_fragments;
     private static final int topFragmentLocation = R.id.main_FRAME_top;
     private static final int menu_home = R.id.menu_FRG_home;
@@ -37,8 +36,6 @@ public class MainActivity extends AppCompatActivity implements UserPetsListObser
     private static final int menu_settings = R.id.menu_FRG_settings;
     private boolean isActivityVisible = true;
     private boolean isPetsListChangedPending = false;
-
-
     private ActivityMainBinding binding;
 
 

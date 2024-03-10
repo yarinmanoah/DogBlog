@@ -23,10 +23,8 @@ import java.util.Comparator;
 import java.util.List;
 
 public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHolder> {
-
     private final Fragment fragment;
     private List<Meal> mealsList;
-
     private MealCallback mealCallback;
 
     public MealsAdapter(Fragment fragment, List<Meal> mealsList) {

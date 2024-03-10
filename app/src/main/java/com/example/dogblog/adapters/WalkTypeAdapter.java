@@ -17,7 +17,6 @@ import com.google.android.material.textview.MaterialTextView;
 import java.util.List;
 
 public class WalkTypeAdapter extends RecyclerView.Adapter<WalkTypeAdapter.WalkTypeViewHolder> {
-
     private List<WalkType> walkTypes;
     private WalkTypeCallback walkTypeCallback;
     private Context context;

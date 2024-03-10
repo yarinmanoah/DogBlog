@@ -24,10 +24,8 @@ import java.util.Comparator;
 import java.util.List;
 
 public class WalksAdapter extends RecyclerView.Adapter<WalksAdapter.WalkViewHolder> {
-
     private final Fragment fragment;
     private List<Walk> WalksList;
-
     private WalkCallback walkCallback;
 
     public WalksAdapter(Fragment fragment, List<Walk> WalksList) {

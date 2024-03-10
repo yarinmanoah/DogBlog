@@ -40,7 +40,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class AddMealFragment extends Fragment {
-
     private FragmentAddMealBinding binding;
     private List<String> mealTypes;
     private MealType selectedMealType;

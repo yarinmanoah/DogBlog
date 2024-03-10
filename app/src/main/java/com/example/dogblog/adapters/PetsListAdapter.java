@@ -27,10 +27,8 @@ import java.util.List;
 import java.util.Map;
 
 public class PetsListAdapter extends RecyclerView.Adapter<PetsListAdapter.PetViewHolder> {
-
     private final Fragment fragment;
     private List<PetProfile> petsList;
-
     private PetListCallback petListCallback;
 
     public PetsListAdapter(Fragment fragment, List<PetProfile> petsList) {

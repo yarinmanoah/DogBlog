@@ -19,7 +19,6 @@ public class CurrentUserPetsList implements UserProfileObserver {
     private static CurrentUserPetsList currentUserPetsList = null;
     private List<PetProfile> pets = new ArrayList<>();
     private final List<UserPetsListObserver> observers = new ArrayList<>();
-
     private boolean isPetsListLoaded = false;
 
     private CurrentUserPetsList() {
@@ -70,7 +69,6 @@ public class CurrentUserPetsList implements UserProfileObserver {
     private void removeDuplicates() {
         Map<String, PetProfile> petProfileMap = pets.stream()
                 .collect(Collectors.toMap(PetProfile::getId, petProfile -> petProfile, (oldValue, newValue) -> oldValue));
-
         pets = new ArrayList<>(petProfileMap.values());
     }
 

@@ -40,7 +40,7 @@
                 android:layout_below="@id/top_item_IMG_pet"
                 android:layout_marginTop="-10dp"
                 android:layout_centerHorizontal="true"
-                android:text="Buddy"
+                android:text="Person"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 

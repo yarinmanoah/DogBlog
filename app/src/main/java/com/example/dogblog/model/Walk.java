@@ -3,7 +3,6 @@ package com.example.dogblog.model;
 import java.util.Locale;
 
 public class Walk {
-
     private UserProfile owner;
     private long dateTime;
     private int durationInMinutes;

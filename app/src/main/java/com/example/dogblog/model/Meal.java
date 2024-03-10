@@ -1,15 +1,6 @@
 package com.example.dogblog.model;
 
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.UUID;
-
 public class Meal {
-
     private UserProfile owner;
     private long dateTime;
     private String note;

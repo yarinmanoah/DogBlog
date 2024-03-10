@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserProfile {
-
     private String name;
     private String uid;
     private String profileImage;

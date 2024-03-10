@@ -57,10 +57,8 @@ import java.util.Date;
 import java.util.List;
 
 public class PetProfileActivity extends AppCompatActivity {
-
     private static final String WALK = "Walk";
     private static final String MEAL = "Meal";
-
     private ActivityPetProfileBinding binding;
     private MealTypeAdapter mealTypeAdapter;
     private WalkTypeAdapter walkTypeAdapter;
@@ -77,7 +75,6 @@ public class PetProfileActivity extends AppCompatActivity {
     private boolean isFromActivityMain = false;
     private int walk_duration_hours = 0;
     private int walk_duration_minutes = 0;
-
     private List<UserProfile> owners = new ArrayList<>();
 
     @Override

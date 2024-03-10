@@ -14,7 +14,6 @@ import java.util.Map;
 import java.util.UUID;
 
 public class PetProfile {
-
     private String id;
     private String name;
     private String profileImage;
@@ -217,6 +216,4 @@ public class PetProfile {
                 ", meals=" + meals +
                 '}';
     }
-
-
 }
