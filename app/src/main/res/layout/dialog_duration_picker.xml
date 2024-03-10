@@ -9,24 +9,55 @@
         android:orientation="horizontal"
         android:padding="16dp">
 
-        <NumberPicker
-            android:id="@+id/dialog_duration_picker_NP_hours"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hours"
+                android:gravity="center"
+                android:textColor="@color/black" />
+
+            <NumberPicker
+                android:id="@+id/dialog_duration_picker_NP_hours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=":" />
+            android:text=":"
+            android:textSize="20sp"/>
 
-        <NumberPicker
-            android:id="@+id/dialog_duration_picker_NP_minutes"
+
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Minutes"
+                android:gravity="center"
+                android:textColor="@color/black" />
+
+            <NumberPicker
+                android:id="@+id/dialog_duration_picker_NP_minutes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -187,14 +187,17 @@ public class UserProfileActivity extends AppCompatActivity {
         FilesCrud.getInstance().getUserFileReference(this.fileName).putFile(imageUri)
                 .addOnSuccessListener(taskSnapshot -> {
                     taskSnapshot.getStorage().getDownloadUrl().addOnCompleteListener(task -> {
-                        imageUrl = task.getResult().toString();
-                        isImageUploaded = true;
+                        if(task.isSuccessful() && task.getResult() != null) {
+                            imageUrl = task.getResult().toString();
+                            isImageUploaded = true;
+                        }
+                        else{
+                            setImageUploadingView(false);
+                            Toast.makeText(UserProfileActivity.this, "Failed Uploaded Image", Toast.LENGTH_SHORT).show();
+                        }
                     });
                     setImageUploadingView(false);
                     Toast.makeText(UserProfileActivity.this, "Image Uploaded", Toast.LENGTH_SHORT).show();
-                }).addOnFailureListener(e -> {
-                    setImageUploadingView(false);
-                    Toast.makeText(UserProfileActivity.this, "Failed Uploaded Image", Toast.LENGTH_SHORT).show();
                 });
     }
 

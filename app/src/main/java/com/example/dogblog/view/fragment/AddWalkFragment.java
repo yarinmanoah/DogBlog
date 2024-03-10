@@ -1,5 +1,6 @@
 package com.example.dogblog.view.fragment;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -201,6 +202,11 @@ public class AddWalkFragment extends Fragment {
         NumberPicker npHours = view.findViewById(R.id.dialog_duration_picker_NP_hours);
         NumberPicker npMinutes = view.findViewById(R.id.dialog_duration_picker_NP_minutes);
 
+        npHours.setTextColor(R.color.black);
+        npMinutes.setTextColor(R.color.black);
+
+
+
         npHours.setMinValue(0);
         npHours.setMaxValue(23);
         npMinutes.setMinValue(0);
@@ -262,7 +268,14 @@ public class AddWalkFragment extends Fragment {
     private void getWalksTypesList() {
         if (CurrentPet.getInstance().getPetProfile() != null)
             this.walkTypes = CurrentPet.getInstance().getPetProfile().getWalkTypes().stream().map(WalkType::getName).collect(Collectors.toList());
+        addWalkTypes();
+    }
 
+    private void addWalkTypes() {
+        this.walkTypes.add(Constants.WALK_TYPE_STREET);
+        this.walkTypes.add(Constants.WALK_TYPE_DOG_YARD);
+        this.walkTypes.add(Constants.WALK_TYPE_PARK);
+        this.walkTypes.add(Constants.WALK_TYPE_RUNNING);
         this.walkTypes.add(Constants.WALK_TYPE_OTHER);
     }
 

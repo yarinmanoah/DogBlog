@@ -38,7 +38,7 @@ dependencies {
         implementation ("androidx.appcompat:appcompat:1.7.0-alpha03")  // AppCompat library for backward compatibility
         implementation ("com.google.android.material:material:1.11.0")  // Material Design library
         implementation ("androidx.constraintlayout:constraintlayout:2.1.4")  // ConstraintLayout library
-        implementation ("com.google.android.gms:play-services-auth:20.7.0")
+        //implementation ("com.google.android.gms:play-services-auth:21.0.0")
 
 
 // Firebase Dependencies
@@ -48,7 +48,7 @@ dependencies {
         androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.1")  // Espresso UI testing framework
 
 // Firebase
-        implementation ("com.google.firebase:firebase-bom:32.7.3")  // Firebase BoM for managing dependencies
+        implementation ("com.google.firebase:firebase-bom:32.7.4")  // Firebase BoM for managing dependencies
         implementation ("com.google.firebase:firebase-analytics-ktx:21.5.1")  // Firebase Analytics library
         implementation ("com.google.firebase:firebase-database:20.3.1")  // Firebase Realtime Database library
         implementation ("com.google.firebase:firebase-core:21.1.1")  // Firebase Core library

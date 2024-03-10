@@ -71,7 +71,7 @@
                         android:layout_marginStart="10dp"
                         android:text="2 years old"
                         android:textColor="@color/colorRecycleItemSecondaryText"
-                        android:textSize="16sp" />
+                        android:textSize="12sp" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 

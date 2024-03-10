@@ -14,6 +14,18 @@ public class Constants {
     public static final String KEY_FROM_MAIN = "FromActivityMain";
     public static final String KEY_NEW_USER = "NewPet";
     public static final String MEAL_TYPE_OTHER = "Other";
-    public static final String WALK_TYPE_OTHER = "Other";
+    public static final String WALK_TYPE_OTHER = "OTHER";
+    public static final String WALK_TYPE_STREET = "STREET";
+    public static final String WALK_TYPE_DOG_YARD = "DOG YARD";
+    public static final String WALK_TYPE_PARK = "PARK";
+    public static final String WALK_TYPE_RUNNING = "RUNNING";
+
+
+
+
+
+
+
+
     public static final float DEFAULT_WALK_RATE = 5;
 }
