@@ -1,7 +1,6 @@
 plugins {
     id  ("com.android.application")
     id  ("com.google.gms.google-services")
-
 }
 
 android {
@@ -36,9 +35,11 @@ android {
 
 dependencies {
 // Dependencies for UI and Support Libraries
-        implementation ("androidx.appcompat:appcompat:1.6.1")  // AppCompat library for backward compatibility
+        implementation ("androidx.appcompat:appcompat:1.7.0-alpha03")  // AppCompat library for backward compatibility
         implementation ("com.google.android.material:material:1.11.0")  // Material Design library
         implementation ("androidx.constraintlayout:constraintlayout:2.1.4")  // ConstraintLayout library
+        implementation ("com.google.android.gms:play-services-auth:20.7.0")
+
 
 // Firebase Dependencies
         implementation ("com.google.firebase:firebase-auth-ktx:22.3.1")  // Firebase Authentication library
@@ -49,7 +50,7 @@ dependencies {
 // Firebase
         implementation ("com.google.firebase:firebase-bom:32.7.3")  // Firebase BoM for managing dependencies
         implementation ("com.google.firebase:firebase-analytics-ktx:21.5.1")  // Firebase Analytics library
-        implementation ("com.google.firebase:firebase-database")  // Firebase Realtime Database library
+        implementation ("com.google.firebase:firebase-database:20.3.1")  // Firebase Realtime Database library
         implementation ("com.google.firebase:firebase-core:21.1.1")  // Firebase Core library
         implementation ("com.google.firebase:firebase-auth")  // Firebase Authentication library
         implementation ("com.firebaseui:firebase-ui-auth:8.0.2")  // FirebaseUI Authentication library

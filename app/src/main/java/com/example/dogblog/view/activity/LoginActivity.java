@@ -84,19 +84,11 @@ public class LoginActivity extends AppCompatActivity {
                 .createSignInIntentBuilder()
                 .setAvailableProviders(providers)
                 .setIsSmartLockEnabled(false)
-                .setLogo(R.drawable.ic_launcher_background)
+                .setLogo(R.drawable.ic_icon_background)
                 .setTheme(R.style.LoginTheme)
                 .build();
         signInLauncher.launch(signInIntent);
 
-//
-//        Intent signInIntent = AuthUI.getInstance()
-//                .createSignInIntentBuilder()
-//                .setAvailableProviders(providers)
-//                .setIsSmartLockEnabled(false)
-//                .setLogo(R.drawable.ic_app)
-//                .build();
-//        signInLauncher.launch(signInIntent);
     }
 
     private void loadUserProfile() {
