@@ -23,7 +23,6 @@ public class CurrentUserPetsList implements UserProfileObserver {
 
     private CurrentUserPetsList() {
         CurrentUser.getInstance().registerListener(this);
-//        getPetsData();
     }
 
     public static CurrentUserPetsList getInstance() {
@@ -88,7 +87,6 @@ public class CurrentUserPetsList implements UserProfileObserver {
 
     @Override
     public void onPetsListChanged() {
-//        if (isPetsListLoaded)
             getPetsData();
     }
 }

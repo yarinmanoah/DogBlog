@@ -106,7 +106,6 @@ public class WalksAdapter extends RecyclerView.Adapter<WalksAdapter.WalkViewHold
             super(itemView);
             initViews();
             walk_BTN_delete.setOnClickListener(view -> walkCallback.deleteClicked(getItem(getAdapterPosition()), getAdapterPosition()));
-//            itemView.setOnClickListener(view -> walkCallback.itemClicked(getItem(getAdapterPosition()), getAdapterPosition()));
         }
 
         private void initViews() {

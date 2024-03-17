@@ -195,7 +195,9 @@ public class PetProfileActivity extends AppCompatActivity {
     }
 
     private void setPetButtonsListener() {
-        binding.petIMGProfile.setOnClickListener(v -> checkPermissionAndUploadImage());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            binding.petIMGProfile.setOnClickListener(v -> checkPermissionAndUploadImage());
+        }
         binding.petBTNSave.setOnClickListener(v -> updatePetProfile());
         binding.petBTNDateOfBirth.setOnClickListener(v -> setDate());
         binding.petBTNAddMeal.setOnClickListener(v -> addMealType());

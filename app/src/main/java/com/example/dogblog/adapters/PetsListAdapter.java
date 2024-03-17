@@ -37,7 +37,6 @@ public class PetsListAdapter extends RecyclerView.Adapter<PetsListAdapter.PetVie
             uniqueMap.put(pet.getId(), pet);
         }
         this.petsList = new ArrayList<>(uniqueMap.values());
-//        this.petsList = petsList;
         this.fragment = fragment;
     }
 

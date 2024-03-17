@@ -1,7 +1,5 @@
 package com.example.dogblog.utils;
 
-import com.example.dogblog.model.WalkType;
-
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;

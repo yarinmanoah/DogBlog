@@ -99,7 +99,6 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.MealViewHold
             super(itemView);
             initViews();
             meal_BTN_delete.setOnClickListener(view -> mealCallback.deleteClicked(getItem(getAdapterPosition()), getAdapterPosition()));
-//            itemView.setOnClickListener(view -> mealCallback.itemClicked(getItem(getAdapterPosition()), getAdapterPosition()));
         }
 
         private void initViews() {

@@ -6,7 +6,6 @@ public class Meal {
     private String note;
     private MealType mealType;
     private String name;
-
     private int amount;
     private String unit;
 

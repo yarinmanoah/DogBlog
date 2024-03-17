@@ -18,6 +18,7 @@ import com.example.dogblog.dal.FirebaseDB;
 import com.example.dogblog.current_state.singletons.CurrentUser;
 import com.example.dogblog.model.UserProfile;
 import com.example.dogblog.utils.Constants;
+import com.example.dogblog.utils.SignalUtils;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
 import com.firebase.ui.auth.IdpResponse;
@@ -47,9 +48,10 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn = findViewById(R.id.loginBtn);
         registerBtn = findViewById(R.id.registerBtn);
 
+        SignalUtils.init(this);
+
         if (FirebaseAuth.getInstance().getCurrentUser() != null)
             loadInUserAndLogin();
-
 
         loginBtn.setOnClickListener((v) -> {
             String email = etEmail.getText().toString();
@@ -57,14 +59,14 @@ public class LoginActivity extends AppCompatActivity {
 
             // Validate email and password
             if (TextUtils.isEmpty(email) || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                // Invalid email, prompt the user to enter a valid email
-                etEmail.setError("Enter a valid email address");
+                SignalUtils.getInstance().vibrate(Constants.VIBRATION_TIME);
+                etEmail.setError("Enter a valid email address"); // Invalid email, prompt the user to enter a valid email
                 return;
             }
 
             if (TextUtils.isEmpty(password)) {
-                // Invalid password, prompt the user to enter a password
-                etPassword.setError("Enter a password");
+                SignalUtils.getInstance().vibrate(Constants.VIBRATION_TIME);
+                etPassword.setError("Enter a password"); // Invalid password, prompt the user to enter a password
                 return;
             }
 
@@ -73,20 +75,18 @@ public class LoginActivity extends AppCompatActivity {
                     .signInWithEmailAndPassword(email, password)
                     .addOnSuccessListener(authResult -> loadInUserAndLogin())
                     .addOnFailureListener(e -> {
-                        // Display error message if sign-in fails
-                        Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        // Clear password field for security reasons
-                        etPassword.getText().clear();
+                        SignalUtils.getInstance().toast(e.getMessage()); // Display error message if sign-in fails
+                        etPassword.getText().clear(); // Clear password field for security reasons
+
                     });
         });
-
-
 
         registerBtn.setOnClickListener((v) -> {
             FirebaseAuth.getInstance()
                     .createUserWithEmailAndPassword(etEmail.getText().toString(), etPassword.getText().toString())
                     .addOnSuccessListener(authResult -> loadInUserAndLogin())
-                    .addOnFailureListener(e -> Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show());
+                    .addOnFailureListener(e ->
+                            SignalUtils.getInstance().toast(e.getMessage()));
 
         });
 
@@ -99,7 +99,8 @@ public class LoginActivity extends AppCompatActivity {
             else {
                 goToMainActivity();
             }
-        }, e -> Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show());
+        }, e -> SignalUtils.getInstance().toast(e.getMessage()));
+
 
     }
 

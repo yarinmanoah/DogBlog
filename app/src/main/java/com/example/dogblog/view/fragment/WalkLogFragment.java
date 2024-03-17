@@ -76,7 +76,7 @@ public class WalkLogFragment extends Fragment implements PetWalksObserver {
         walksAdapter.setWalkCallback(new WalkCallback() {
             @Override
             public void itemClicked(Walk walk, int position) {
-                // Do nothing for now, later on we will add the option to view the meal
+                // Do nothing for now, later on we will add the option to view the Walk
             }
 
             @Override

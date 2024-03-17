@@ -19,11 +19,11 @@ public class PetProfile {
     private String profileImage;
     private String gender;
     private long dateOfBirth;
-    private List<String> ownersIds = new ArrayList<>();
-    private List<MealType> mealTypes = new ArrayList<>();
-    private List<WalkType> walkTypes = new ArrayList<>();
-    private List<Meal> meals = new ArrayList<>();
-    private List<Walk> walks = new ArrayList<>();
+    private List<String> ownersIds;
+    private List<MealType> mealTypes;
+    private List<WalkType> walkTypes;
+    private List<Meal> meals;
+    private List<Walk> walks;
 
     public PetProfile() {
         this.id = UUID.randomUUID().toString();
