@@ -34,7 +34,6 @@ public class TopFragment extends Fragment /* implements UserPetsListObserver */ 
 
         initButtonsListeners();
         setUserNameView();
-//        CurrentUserPetsList.getInstance().registerListener(this);
 
         if(CurrentUser.getInstance().getUserProfile().hasPets()) {
                 pets = CurrentUserPetsList.getInstance().getPets();
@@ -80,18 +79,11 @@ public class TopFragment extends Fragment /* implements UserPetsListObserver */ 
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-//        CurrentUserPetsList.getInstance().unregisterListener(this);
     }
 
     @Override
     public void onPause() {
         super.onPause();
     }
-
-//    @Override
-//    public void onPetsListChanged() {
-//        pets = CurrentUserPetsList.getInstance().getPets();
-//        initPetListView();
-//    }
 
 }

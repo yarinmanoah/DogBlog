@@ -137,9 +137,6 @@ public class SettingsFragment extends Fragment implements UserPetsListObserver {
 
         pet.removeOwner(CurrentUser.getInstance().getUserProfile().getUid());
         DataCrud.getInstance().setPetInDB(pet);
-
-//        pets.remove(pet);
-//        petsListAdapter.notifyDataSetChanged();
         CurrentUserPetsList.getInstance().getPetsData();
     }
 

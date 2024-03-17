@@ -34,6 +34,7 @@ import com.google.firebase.database.DatabaseReference;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
     private TextInputEditText etEmail, etPassword;
@@ -43,53 +44,113 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        etEmail= findViewById(R.id.emailAddressEt);
-        etPassword= findViewById(R.id.passwordEt);
+
+        // Initialize views
+        etEmail = findViewById(R.id.emailAddressEt);
+        etPassword = findViewById(R.id.passwordEt);
         loginBtn = findViewById(R.id.loginBtn);
         registerBtn = findViewById(R.id.registerBtn);
 
-        SignalUtils.init(this);
+        // Set onClickListener for login button
+        loginBtn.setOnClickListener(v -> {
+            String email = Objects.requireNonNull(etEmail.getText()).toString();
+            String password = Objects.requireNonNull(etPassword.getText()).toString();
+            validateAndSignIn(email, password, false); // Passing false to indicate login
+        });
 
-        if (FirebaseAuth.getInstance().getCurrentUser() != null)
-            loadInUserAndLogin();
+        // Set onClickListener for register button
+        registerBtn.setOnClickListener(v -> {
+            String email = Objects.requireNonNull(etEmail.getText()).toString();
+            String password = Objects.requireNonNull(etPassword.getText()).toString();
+            validateAndSignIn(email, password, true); // Passing true to indicate registration
+        });
+    }
 
-        loginBtn.setOnClickListener((v) -> {
-            String email = etEmail.getText().toString();
-            String password = etPassword.getText().toString();
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_login);
+//
+//        etEmail= findViewById(R.id.emailAddressEt);
+//        etPassword= findViewById(R.id.passwordEt);
+//        loginBtn = findViewById(R.id.loginBtn);
+//        registerBtn = findViewById(R.id.registerBtn);
+//
+//        SignalUtils.init(this);
+//
+//        if (FirebaseAuth.getInstance().getCurrentUser() != null)
+//            loadInUserAndLogin();
+//
+//        loginBtn.setOnClickListener((v) -> {
+//            String email = Objects.requireNonNull(etEmail.getText()).toString();
+//            String password = Objects.requireNonNull(etPassword.getText()).toString();
+//
+//            // Validate email and password
+//            if (TextUtils.isEmpty(email) || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+//                SignalUtils.getInstance().vibrate(Constants.VIBRATION_TIME);
+//                etEmail.setError("Enter a valid email address"); // Invalid email, prompt the user to enter a valid email
+//                return;
+//            }
+//
+//            if (TextUtils.isEmpty(password) || password.length() < 8 || !password.matches(".*[a-zA-Z].*")) {
+//                SignalUtils.getInstance().vibrate(Constants.VIBRATION_TIME);
+//                etPassword.setError("Enter a password with at least 8 characters including letters");
+//                return;
+//            }
+//
+//            // If both email and password are valid, proceed with Firebase sign-in
+//            FirebaseAuth.getInstance()
+//                    .signInWithEmailAndPassword(email, password)
+//                    .addOnSuccessListener(authResult -> loadInUserAndLogin())
+//                    .addOnFailureListener(e -> {
+//                        SignalUtils.getInstance().toast(e.getMessage()); // Display error message if sign-in fails
+//                        etPassword.getText().clear(); // Clear password field for security reasons
+//                    });
+//        });
+//
+//        registerBtn.setOnClickListener((v) -> {
+//            FirebaseAuth.getInstance()
+//                    .createUserWithEmailAndPassword(etEmail.getText().toString(), etPassword.getText().toString())
+//                    .addOnSuccessListener(authResult -> loadInUserAndLogin())
+//                    .addOnFailureListener(e ->
+//                            SignalUtils.getInstance().toast(e.getMessage()));
+//
+//        });
+//
+//    }
 
-            // Validate email and password
-            if (TextUtils.isEmpty(email) || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                SignalUtils.getInstance().vibrate(Constants.VIBRATION_TIME);
-                etEmail.setError("Enter a valid email address"); // Invalid email, prompt the user to enter a valid email
-                return;
-            }
+    private void validateAndSignIn(String email, String password, boolean isRegister) {
+        // Validate email and password
+        if (TextUtils.isEmpty(email) || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            SignalUtils.getInstance().vibrate(Constants.VIBRATION_TIME);
+            etEmail.setError("Enter a valid email address"); // Invalid email, prompt the user to enter a valid email
+            return;
+        }
 
-            if (TextUtils.isEmpty(password)) {
-                SignalUtils.getInstance().vibrate(Constants.VIBRATION_TIME);
-                etPassword.setError("Enter a password"); // Invalid password, prompt the user to enter a password
-                return;
-            }
+        if (TextUtils.isEmpty(password) || password.length() < 8 || !password.matches(".*[a-zA-Z].*")) {
+            SignalUtils.getInstance().vibrate(Constants.VIBRATION_TIME);
+            etPassword.setError("Enter a password with at least 8 characters including letters");
+            return;
+        }
 
-            // If both email and password are valid, proceed with Firebase sign-in
+        // If both email and password are valid, proceed with Firebase sign-in or registration
+        if (isRegister) {
+            FirebaseAuth.getInstance()
+                    .createUserWithEmailAndPassword(email, password)
+                    .addOnSuccessListener(authResult -> loadInUserAndLogin())
+                    .addOnFailureListener(e -> {
+                        // Display error message if registration fails
+                        SignalUtils.getInstance().toast(e.getMessage());
+                    });
+        } else {
             FirebaseAuth.getInstance()
                     .signInWithEmailAndPassword(email, password)
                     .addOnSuccessListener(authResult -> loadInUserAndLogin())
                     .addOnFailureListener(e -> {
-                        SignalUtils.getInstance().toast(e.getMessage()); // Display error message if sign-in fails
-                        etPassword.getText().clear(); // Clear password field for security reasons
-
+                        // Display error message if sign-in fails
+                        SignalUtils.getInstance().toast(e.getMessage());
+                        // Clear password field for security reasons
+                        etPassword.getText().clear();
                     });
-        });
-
-        registerBtn.setOnClickListener((v) -> {
-            FirebaseAuth.getInstance()
-                    .createUserWithEmailAndPassword(etEmail.getText().toString(), etPassword.getText().toString())
-                    .addOnSuccessListener(authResult -> loadInUserAndLogin())
-                    .addOnFailureListener(e ->
-                            SignalUtils.getInstance().toast(e.getMessage()));
-
-        });
-
+        }
     }
 
     private void loadInUserAndLogin() {

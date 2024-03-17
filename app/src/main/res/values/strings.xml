@@ -2,6 +2,8 @@
     <string name="app_name">DogBlog</string>
     <string name="Yarin">Yarin Manaoh</string>
     <string name="Toy">Toy</string>
+    <string name="password">Password</string>
+    <string name="email_address">Email address</string>
 
 
 
