@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.dogblog.adapters.PetsCurrentAdapter;
-import com.example.dogblog.current_state.observers.UserPetsListObserver;
 import com.example.dogblog.current_state.singletons.CurrentPet;
 import com.example.dogblog.current_state.singletons.CurrentUser;
 import com.example.dogblog.current_state.singletons.CurrentUserPetsList;
@@ -71,8 +70,8 @@ public class TopFragment extends Fragment /* implements UserPetsListObserver */ 
         });
     }
 
-    private void setUserNameView() {
-        binding.topTVTitle.setText("Hello " + CurrentUser.getInstance().getUserProfile().getName());
+    public void setUserNameView() {
+        binding.topTVTitle.setText(String.format("Hello%n%s", CurrentUser.getInstance().getUserProfile().getName()));
     }
 
     @Override

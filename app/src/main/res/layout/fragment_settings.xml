@@ -54,7 +54,9 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:text="Edit Your Profile"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                app:backgroundTint="@color/colorPrimaryDark" />
+            />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -75,7 +77,10 @@
                 android:text="Add New Pet"
                 android:textAllCaps="false"
                 android:textSize="15sp"
-                app:strokeColor="@color/colorPrimaryDark" />
+                android:textColor="@color/black"
+                app:strokeColor="@color/colorPrimaryDark"
+                app:backgroundTint="@color/colorPrimaryDark" />
+        />
 
 
         <RelativeLayout

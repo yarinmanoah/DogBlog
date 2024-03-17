@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +28,8 @@ import com.example.dogblog.databinding.ActivityUserProfileBinding;
 import com.example.dogblog.model.UserProfile;
 import com.example.dogblog.utils.Constants;
 
+import com.example.dogblog.view.fragment.SettingsFragment;
+import com.example.dogblog.view.fragment.TopFragment;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class UserProfileActivity extends AppCompatActivity {
@@ -36,7 +39,6 @@ public class UserProfileActivity extends AppCompatActivity {
     private String imageUrl;
     private String fileName;
     private ActivityResultLauncher<Intent> imagePickerLauncher;
-    private boolean isImageUploaded = true;
     private boolean isNewUser = false;
     private boolean isFromActivityMain = false;
 
@@ -120,20 +122,61 @@ public class UserProfileActivity extends AppCompatActivity {
 
 
     private boolean validateFields() {
-        if (binding.profileEDTName.getEditText().getText().toString().isEmpty()) {
+        String name = binding.profileEDTName.getEditText().getText().toString().trim();
+        String phoneNumber = binding.profileEDTPhone.getEditText().getText().toString().trim();
+
+        boolean isValidName = isValidName(name);
+        boolean isValidPhoneNumber = isValidPhoneNumber(phoneNumber);
+        boolean isNameEmpty = TextUtils.isEmpty(name);
+        boolean isPhoneNumberEmpty = TextUtils.isEmpty(phoneNumber);
+
+        // Validate name field
+        if (isNameEmpty && !isPhoneNumberEmpty) {
+            // Name is empty but phone number is not
             binding.profileEDTName.setError("Name is required!");
-            return false;
-        }
-        if (binding.profileEDTPhone.getEditText().getText().toString().isEmpty()) {
-            binding.profileEDTPhone.setError("Phone is required!");
-            return false;
-        }
-        if (!isImageUploaded) {
-            Toast.makeText(this, "Please upload the image", Toast.LENGTH_SHORT).show();
-            return false;
+            binding.profileEDTName.setErrorEnabled(true);
+        } else if (!isValidName && !isNameEmpty) {
+            // Name is not empty but invalid
+            binding.profileEDTName.setError("Invalid name! Name must contain First and Last name.");
+            binding.profileEDTName.setErrorEnabled(true);
+        } else {
+            // Name is valid or empty
+            binding.profileEDTName.setError(null);
+            binding.profileEDTName.setErrorEnabled(false);
         }
 
-        return true;
+        // Validate phone number field
+        if (isPhoneNumberEmpty && !isNameEmpty) {
+            // Phone number is empty but name is not
+            binding.profileEDTPhone.setError("Phone is required!");
+            binding.profileEDTPhone.setErrorEnabled(true);
+        } else if (!isValidPhoneNumber && !isPhoneNumberEmpty) {
+            // Phone number is not empty but invalid
+            binding.profileEDTPhone.setError("Invalid phone number! Phone must contain 8 numbers.");
+            binding.profileEDTPhone.setErrorEnabled(true);
+        } else {
+            // Phone number is valid or empty
+            binding.profileEDTPhone.setError(null);
+            binding.profileEDTPhone.setErrorEnabled(false);
+        }
+
+        // Return true only if both fields are valid
+        return isValidName && isValidPhoneNumber;
+    }
+
+    private boolean isValidName(String name) {
+        // Regex to check if the name contains only letters and only one space between words
+        return name.matches("[a-zA-Z]+\\s[a-zA-Z]+");
+    }
+
+    private boolean isValidPhoneNumber(String phoneNumber) {
+        // Regular expression for Israeli mobile phone numbers without hyphens
+        // The pattern allows for mobile numbers starting with "05" followed by 7 digits
+        // Example valid formats: 0501234567, 0541234567, 0521234567
+        String israeliMobileNumberPattern = "^05[0-9]{8}$";
+
+        // Return true if the phone number matches the Israeli mobile phone number pattern
+        return phoneNumber.matches(israeliMobileNumberPattern);
     }
 
     private void initImagePickerLauncher() {
@@ -151,11 +194,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
     private void initUserProfileData() {
         UserProfile userProfile = CurrentUser.getInstance().getUserProfile();
-
-        if (userProfile.getName() != null && !userProfile.getName().isEmpty())
-            binding.profileEDTName.getEditText().setText(userProfile.getName());
-        if (userProfile.getPhoneNumber() != null && !userProfile.getPhoneNumber().isEmpty())
-            binding.profileEDTPhone.getEditText().setText(userProfile.getPhoneNumber());
+        validateFields();
         if (userProfile.getProfileImage() != null && !userProfile.getProfileImage().isEmpty()) {
             imageUrl = userProfile.getProfileImage();
             Glide.with(UserProfileActivity.this)
@@ -168,22 +207,30 @@ public class UserProfileActivity extends AppCompatActivity {
         if (!validateFields())
             return;
 
-        UserProfile userProfile = CurrentUser.getInstance().getUserProfile();
-        String phone = binding.profileEDTPhone.getEditText().getText().toString();
         String name = binding.profileEDTName.getEditText().getText().toString();
-        userProfile
-                .setPhoneNumber(phone)
-                .setName(name)
-                .setProfileImage(imageUrl)
-                .setRegistered(true);
+        String phoneNumber = binding.profileEDTPhone.getEditText().getText().toString();
 
-        FirebaseDB.getInstance().getUsersReference().child(userProfile.getUid()).setValue(userProfile);
-        profileSaved();
+        UserProfile userProfile = CurrentUser.getInstance().getUserProfile();
+        userProfile.setName(name);
+        userProfile.setPhoneNumber(phoneNumber);
+        userProfile.setRegistered(true);
+
+        if (!TextUtils.isEmpty(imageUrl) && !imageUrl.equals(userProfile.getProfileImage())) {
+            userProfile.setProfileImage(imageUrl);
+        }
+
+        FirebaseDB.getInstance().getUsersReference().child(userProfile.getUid()).setValue(userProfile)
+                .addOnSuccessListener(aVoid -> {
+                    profileSaved();
+                    Toast.makeText(UserProfileActivity.this, "Profile updated successfully", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(UserProfileActivity.this, "Failed to update profile", Toast.LENGTH_SHORT).show();
+                });
     }
 
     private void uploadImage() {
         setImageUploadingView(true);
-        isImageUploaded = false;
 
         this.fileName = CurrentUser.getInstance().getUid();
         FilesCrud.getInstance().getUserFileReference(this.fileName).putFile(imageUri)
@@ -191,7 +238,6 @@ public class UserProfileActivity extends AppCompatActivity {
                     taskSnapshot.getStorage().getDownloadUrl().addOnCompleteListener(task -> {
                         if(task.isSuccessful() && task.getResult() != null) {
                             imageUrl = task.getResult().toString();
-                            isImageUploaded = true;
                         }
                         else{
                             setImageUploadingView(false);

@@ -60,7 +60,7 @@ public class SettingsFragment extends Fragment implements UserPetsListObserver {
                 .into(binding.profileIMGProfile);
     }
 
-    private void setUserNameView() {
+    public void setUserNameView() {
         binding.settingsLBLName.setText(CurrentUser.getInstance().getUserProfile().getName());
     }
 
