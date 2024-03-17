@@ -38,7 +38,7 @@ dependencies {
         implementation ("androidx.appcompat:appcompat:1.7.0-alpha03")  // AppCompat library for backward compatibility
         implementation ("com.google.android.material:material:1.11.0")  // Material Design library
         implementation ("androidx.constraintlayout:constraintlayout:2.1.4")  // ConstraintLayout library
-        //implementation ("com.google.android.gms:play-services-auth:21.0.0")
+        //implementation ("com.google.android.gms:play-services-auth:20.7.0")
 
 
 // Firebase Dependencies

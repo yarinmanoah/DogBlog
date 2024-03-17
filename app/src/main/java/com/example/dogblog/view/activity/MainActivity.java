@@ -133,11 +133,6 @@ public class MainActivity extends AppCompatActivity implements UserPetsListObser
         alertDialog.getWindow().setGravity(Gravity.BOTTOM);
     }
 
-//    private void setNoPets() {
-//        binding.mainBNVMenu.setEnabled(false);
-//        setTopFragment();
-//    }
-
     private void setNoPets() {
         for (int i = 0; i < binding.mainBNVMenu.getMenu().size(); i++) {
             MenuItem menuItem = binding.mainBNVMenu.getMenu().getItem(i);
@@ -201,7 +196,6 @@ public class MainActivity extends AppCompatActivity implements UserPetsListObser
 
             setTopFragment();
             binding.mainBNVMenu.setSelectedItemId(binding.mainBNVMenu.getSelectedItemId());
-//            binding.mainBNVMenu.setSelectedItemId(menu_home);
         }
     }
 

@@ -1,7 +1,7 @@
 package com.example.dogblog.view.activity;
 
+import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,12 +16,10 @@ import com.example.dogblog.model.UserProfile;
 import com.example.dogblog.utils.Constants;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
+import com.firebase.ui.auth.IdpResponse;
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 
 import java.util.Collections;
@@ -66,18 +64,41 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+//    private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
+//            new FirebaseAuthUIActivityResultContract(),
+//            this::onSignInResult
+//    );
+
     private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
             new FirebaseAuthUIActivityResultContract(),
-            result -> onSignInResult(result)
-    );
+            new ActivityResultCallback<FirebaseAuthUIAuthenticationResult>() {
+                @Override
+                public void onActivityResult(FirebaseAuthUIAuthenticationResult result) {
+                    onSignInResult(result);
+                }
+            });
 
     private void onSignInResult(FirebaseAuthUIAuthenticationResult result) {
+        IdpResponse response = result.getIdpResponse();
+        if (result.getResultCode() == RESULT_OK) {
+            // Successfully signed in
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            // ...
+        } else {
+            // Sign in failed. If response is null the user canceled the
+            // sign-in flow using the back button. Otherwise check
+            // response.getError().getErrorCode() and handle the error.
+            // ...
+        }
     }
 
     private void login() {
         List<AuthUI.IdpConfig> providers = Collections.singletonList(
                 new AuthUI.IdpConfig.EmailBuilder().build()
-        );
+                );
+//        List<AuthUI.IdpConfig> providers1 = Collections.singletonList(
+//        new AuthUI.IdpConfig.PhoneBuilder().build()
+//        );
 
         Intent signInIntent = AuthUI.getInstance()
                 .createSignInIntentBuilder()
@@ -87,25 +108,21 @@ public class LoginActivity extends AppCompatActivity {
                 .setTheme(R.style.LoginTheme)
                 .build();
         signInLauncher.launch(signInIntent);
-
     }
 
     private void loadUserProfile() {
-        DataCrud.getInstance().getUserReference(firebaseUser.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
-                    Log.e("firebase", "Error getting data", task.getException());
-                } else {
-                    if (task.getResult().getValue() != null)
-                        CurrentUser.getInstance().setUserProfile(task.getResult().getValue(UserProfile.class));
-                    else
-                        createUser();
-                    if (!CurrentUser.getInstance().getUserProfile().getRegistered())
-                        goToProfileActivity();
-                    else {
-                        goToMainActivity();
-                    }
+        DataCrud.getInstance().getUserReference(firebaseUser.getUid()).get().addOnCompleteListener(task -> {
+            if (!task.isSuccessful()) {
+                Log.e("firebase", "Error getting data", task.getException());
+            } else {
+                if (task.getResult().getValue() != null)
+                    CurrentUser.getInstance().setUserProfile(task.getResult().getValue(UserProfile.class));
+                else
+                    createUser();
+                if (!CurrentUser.getInstance().getUserProfile().getRegistered())
+                    goToProfileActivity();
+                else {
+                    goToMainActivity();
                 }
             }
         });
@@ -117,5 +134,4 @@ public class LoginActivity extends AppCompatActivity {
         DatabaseReference usersReference = FirebaseDB.getInstance().getUsersReference();
         usersReference.child(firebaseUser.getUid()).setValue(userProfile);
     }
-
 }
