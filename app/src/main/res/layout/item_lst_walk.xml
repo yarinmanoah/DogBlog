@@ -146,6 +146,15 @@
                         app:tint="@color/colorRecycleItemSecondaryText" />
 
                     <ImageView
+                        android:id="@+id/walk_IMG_pee"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_pee"
+                        app:tint="#EF5350" />
+
+                    <ImageView
                         android:id="@+id/walk_IMG_poop"
                         android:layout_width="20dp"
                         android:layout_height="20dp"

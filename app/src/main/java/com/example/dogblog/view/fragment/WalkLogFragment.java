@@ -42,7 +42,7 @@ public class WalkLogFragment extends Fragment implements PetWalksObserver {
 
 
     private void updateFragmentData() {
-        getMealsList();
+        getWalksList();
         setWalksListView();
         initListeners();
     }
@@ -50,7 +50,7 @@ public class WalkLogFragment extends Fragment implements PetWalksObserver {
     private void initListeners() {
     }
 
-    private void getMealsList() {
+    private void getWalksList() {
         if (CurrentPet.getInstance().getPetProfile() != null) {
             this.walks = CurrentPet.getInstance().getPetProfile().getWalks();
             this.walks.sort(Comparator.comparingLong(Walk::getDateTime).reversed());

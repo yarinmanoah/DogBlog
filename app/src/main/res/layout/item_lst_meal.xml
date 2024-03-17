@@ -106,24 +106,27 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/meal_TV_type"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="5dp"
+                        android:layout_marginEnd="50dp"
+                        android:layout_weight="1"
                         android:text="Meal Type"
                         android:textColor="@color/colorRecycleItemSecondaryText"
                         android:textSize="16sp" />
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/meal_TV_amount_units"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="Amount: 140 gr"
+                        android:textColor="@color/colorRecycleItemSecondaryText"
+                        android:textSize="16sp" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/meal_TV_amount_units"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="140 gr"
-                    android:textColor="@color/colorRecycleItemSecondaryText"
-                    android:textSize="16sp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/meal_TV_note"
@@ -132,7 +135,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="60dp"
                     android:maxLength="25"
-                    android:text="note"
+                    android:text="Note:"
                     android:textColor="@color/colorRecycleItemPrimaryText"
                     android:textSize="16sp" />
 

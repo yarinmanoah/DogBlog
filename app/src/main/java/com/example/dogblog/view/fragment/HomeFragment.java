@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment implements PetWalksObserver, PetMeals
         binding.homeITMWalk.walkTVNote.setText(lastWalk.getNote());
         binding.homeITMWalk.walkTVDuration.setText(lastWalk.getName() + ", " + lastWalk.getDurationInMinutes() + " min");
         binding.homeITMWalk.walkTVRate.setText((int)lastWalk.getRate() + "/5");
-        binding.homeITMWalk.walkIMGPoop.setVisibility(!lastWalk.getPoop() ? View.VISIBLE : View.GONE);
+        binding.homeITMWalk.walkIMGPoop.setVisibility(lastWalk.getPoop() ? View.VISIBLE : View.GONE);
         binding.homeITMWalk.walkIMGPlay.setVisibility(lastWalk.getPlay() ? View.VISIBLE : View.GONE);
         Glide.
                 with(getContext()).

@@ -55,7 +55,8 @@ public class WalksAdapter extends RecyclerView.Adapter<WalksAdapter.WalkViewHold
         holder.walk_TV_note.setText(walk.getNote());
         holder.walk_TV_duration.setText(walk.getName() + ", " + walk.getDurationInMinutes() + " min");
         holder.walk_TV_rate.setText((int)walk.getRate() + "/5");
-        holder.walk_IMG_poop.setVisibility(walk.getPoop() ? View.GONE : View.VISIBLE);
+        holder.walk_IMG_poop.setVisibility(walk.getPoop() ? View.VISIBLE :  View.GONE);
+        holder.walk_IMG_pee.setVisibility(walk.getPee() ? View.VISIBLE :  View.GONE);
         holder.walk_IMG_play.setVisibility(walk.getPlay() ? View.VISIBLE : View.GONE);
         Glide.
                 with(fragment.getContext()).
@@ -96,6 +97,7 @@ public class WalksAdapter extends RecyclerView.Adapter<WalksAdapter.WalkViewHold
         private MaterialTextView walk_TV_duration;
         private MaterialTextView walk_TV_rate;
         private ImageView walk_IMG_poop;
+        private ImageView walk_IMG_pee;
         private ImageView walk_IMG_play;
         private MaterialTextView walk_TV_note;
         private MaterialButton walk_BTN_delete;
@@ -116,6 +118,7 @@ public class WalksAdapter extends RecyclerView.Adapter<WalksAdapter.WalkViewHold
             walk_TV_duration = itemView.findViewById(R.id.walk_TV_duration);
             walk_TV_rate = itemView.findViewById(R.id.walk_TV_rate);
             walk_IMG_poop = itemView.findViewById(R.id.walk_IMG_poop);
+            walk_IMG_pee = itemView.findViewById(R.id.walk_IMG_pee);
             walk_IMG_play = itemView.findViewById(R.id.walk_IMG_play);
             walk_TV_note = itemView.findViewById(R.id.walk_TV_note);
             walk_BTN_delete = itemView.findViewById(R.id.walk_BTN_delete);
