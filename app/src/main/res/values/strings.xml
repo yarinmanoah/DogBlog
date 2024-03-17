@@ -17,7 +17,7 @@
     <string name="button_upload">Upload Image</string>
     <string name="button_save">Save</string>
     <string name="button_add_pet">Add New Pet</string>
-    <string name="button_home">Go to HomePage</string>
+    <string name="button_back">Back</string>
     <string name="button_owners_list">Owners List</string>
     <string name="button_add_owner">Add Owner</string>
 

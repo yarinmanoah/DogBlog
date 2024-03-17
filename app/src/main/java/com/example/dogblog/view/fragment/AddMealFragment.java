@@ -231,7 +231,11 @@ public class AddMealFragment extends Fragment {
         if (CurrentPet.getInstance().getPetProfile() != null)
             this.mealTypes = CurrentPet.getInstance().getPetProfile().getMealTypes().stream().map(MealType::getName).collect(Collectors.toList());
 
+        this.mealTypes.add(Constants.MEAL_TYPE_REGULAR);
+        this.mealTypes.add(Constants.MEAL_TYPE_TUNA);
+        this.mealTypes.add(Constants.MEAL_TYPE_STEAK);
         this.mealTypes.add(Constants.MEAL_TYPE_OTHER);
+
     }
 
     private void getOwnersList() {
