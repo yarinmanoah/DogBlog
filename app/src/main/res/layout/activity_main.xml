@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_alignParentTop="true"
-        android:layout_weight="3"
+        android:layout_weight="4"
         android:background="@drawable/bck_primary_gradient"/>
 
     <FrameLayout
@@ -39,5 +39,6 @@
         app:menu="@menu/bottom_nav_menu"
         android:elevation="20dp"
         />
+
 
 </RelativeLayout>

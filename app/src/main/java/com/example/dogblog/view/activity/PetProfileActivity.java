@@ -910,7 +910,7 @@ public class PetProfileActivity extends AppCompatActivity {
                         imageUrl = task.getResult().toString();
                         isImageUploaded = true;
                     });
-                    setImageUploadingView(true);
+                    setImageUploadingView(false);
                     Toast.makeText(PetProfileActivity.this, "Image Uploaded", Toast.LENGTH_SHORT).show();
                 }).addOnFailureListener(e -> {
                     setImageUploadingView(false);
