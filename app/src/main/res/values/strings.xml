@@ -4,6 +4,8 @@
     <string name="Toy">Toy</string>
     <string name="password">Password</string>
     <string name="email_address">Email address</string>
+    <string name="register_button">Register</string>
+    <string name="login_button">Login</string>
 
     <string name="title_user_profile">User Profile</string>
     <string name="title_pet_profile">Pet Profile</string>
@@ -64,6 +66,7 @@
     <string name="title_last_walk">Last Walk</string>
     <string name="title_last_meal">Last Meal</string>
     <string name="prompt_no_pets">You have no pets :)</string>
+
 
     <string-array name="Gender">
         <item>Male</item>
